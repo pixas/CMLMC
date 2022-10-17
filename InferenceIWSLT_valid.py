@@ -6,16 +6,16 @@ modelname = sys.argv[1]
 start = int(sys.argv[2])
 end = int(sys.argv[3])
 
-checkpointfolder = 'results/checkpoints/'
+checkpointfolder = '/nvme/jsy/checkpoints/'
 modelfolder = checkpointfolder + modelname + '/'
 ensemblefolder = modelfolder + 'ensemblemodel/'
 
 batch=100
 
 if 'CMLM' in modelname:
-    bleufolder = 'results/BLEU/' + modelname + '/bestvalid_iter10_LEN3/'
+    bleufolder = '/nvme/jsy/BLEU/' + modelname + '/bestvalid_iter10_LEN3/'
 else:
-    bleufolder = 'results/BLEU/' + modelname + '/bestvalid_beam4/'
+    bleufolder = '/nvme/jsy/BLEU/' + modelname + '/bestvalid_beam4/'
 
 os.system('mkdir -p {}'.format(bleufolder))
 os.system('mkdir -p {}'.format(ensemblefolder))

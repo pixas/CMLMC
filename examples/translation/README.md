@@ -112,10 +112,10 @@ cd ../..
 
 # Preprocess/binarize the data
 TEXT=examples/translation/iwslt14.tokenized.de-en
-fairseq-preprocess --source-lang de --target-lang en \
+fast-fairseq-preprocess --source-lang de --target-lang en \
     --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \
-    --destdir data-bin/iwslt14.tokenized.de-en \
-    --workers 20
+    --destdir /nvme/jsy/data-bin/iwslt14_deen_jointdict \
+    --workers 20 --joined-dictionary
 ```
 
 Next we'll train a Transformer translation model over this data:

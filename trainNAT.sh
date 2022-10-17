@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-python train.py "data-bin/iwslt14_deen_jointdict" \
+python train.py "/nvme/jsy/data-bin/iwslt14_deen_jointdict" \
     --arch cmlm_transformer_iwslt_en_de \
     -s de \
     -t en \
@@ -23,7 +23,7 @@ python train.py "data-bin/iwslt14_deen_jointdict" \
     --max-epoch 300 \
     --fixed-validation-seed 7 \
     --fp16 \
-    --save-dir ./results/checkpoints/IWSLTdeen_raw_CMLM_benchmark/ \
+    --save-dir /nvme/jsy/checkpoints/IWSLTdeen_raw_CMLM_benchmark/ --keep-last\
 
 python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLM_benchmark 80 300
 
