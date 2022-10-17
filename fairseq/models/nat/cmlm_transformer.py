@@ -198,11 +198,17 @@ def cmlm_base_architecture(args):
     args.encoder_attention_heads = getattr(args, "encoder_attention_heads", 8)
     args.encoder_normalize_before = getattr(args, "encoder_normalize_before", False)
     args.encoder_learned_pos = getattr(args, "encoder_learned_pos", False)
+    args.encoder_self_attention_type = getattr(args, "encoder_self_attention_type", 'mha')
+    
     args.decoder_embed_path = getattr(args, "decoder_embed_path", None)
     args.decoder_embed_dim = getattr(args, "decoder_embed_dim", args.encoder_embed_dim)
     args.decoder_ffn_embed_dim = getattr(
         args, "decoder_ffn_embed_dim", args.encoder_ffn_embed_dim
     )
+    args.decoder_self_attention_type = getattr(args, "decoder_self_attention_type", 'mha')
+    args.decoder_cross_attention_type = getattr(args, "decoder_cross_attention_type", 'mha')
+    args.amlp_activation = getattr(args, "amlp_activation", 'softmax')
+    args.landmarks = getattr(args, "landmarks", 16)
     args.decoder_layers = getattr(args, "decoder_layers", 6)
     args.decoder_attention_heads = getattr(args, "decoder_attention_heads", 8)
     args.decoder_normalize_before = getattr(args, "decoder_normalize_before", False)

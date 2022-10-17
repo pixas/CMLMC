@@ -9,9 +9,13 @@ import torch
 import torch.nn as nn
 from fairseq import utils
 from fairseq.modules import LayerNorm, MultiheadAttention
-from fairseq.modules.quant_noise import quant_noise
 from fairseq.modules.fairseq_dropout import FairseqDropout
+from fairseq.modules.multihead_attention import FSABC as ABC
+from fairseq.modules.multihead_attention import FSAMLP as AMLP
+from fairseq.modules.multihead_attention import FSAMLPSeq as AMLPSeq
+from fairseq.modules.quant_noise import quant_noise
 from torch import Tensor
+
 
 class TransformerEncoderLayer(nn.Module):
     """Encoder layer block.
@@ -240,6 +244,27 @@ class TransformerDecoderLayer(nn.Module):
         return quant_noise(nn.Linear(input_dim, output_dim), q_noise, qn_block_size)
 
     def build_self_attention(self, embed_dim, args, add_bias_kv=False, add_zero_attn=False):
+        attn_type = args.decoder_self_attention_type
+        if attn_type == 'abc':
+            return ABC(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                add_bias_kv=add_bias_kv,
+                add_zero_attn=add_zero_attn,
+                landmarks=args.landmarks,
+                causal=False
+            )
+        elif attn_type == 'amlpseq':
+            return AMLPSeq(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                add_bias_kv=add_bias_kv,
+                add_zero_attn=add_zero_attn,
+                ffn_dimension=args.landmarks,
+                activation_fn=args.amlp_activation
+            )
         return MultiheadAttention(
             embed_dim,
             args.decoder_attention_heads,
@@ -252,6 +277,23 @@ class TransformerDecoderLayer(nn.Module):
         )
 
     def build_encoder_attention(self, embed_dim, args):
+        attn_type = args.decoder_cross_attention_type
+        if attn_type == 'abc':
+            return ABC(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                landmarks=args.landmarks,
+                causal=False
+            )
+        elif attn_type == 'amlpseq':
+            return AMLPSeq(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                activation_fn=args.amlp_activation
+            )
         return MultiheadAttention(
             embed_dim,
             args.decoder_attention_heads,
