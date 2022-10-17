@@ -71,6 +71,23 @@ class TransformerEncoderLayer(nn.Module):
         return quant_noise(nn.Linear(input_dim, output_dim), p=q_noise, block_size=qn_block_size)
 
     def build_self_attention(self, embed_dim, args):
+        attn_type = args.encoder_self_attention_type
+        if attn_type == 'abc':
+            return ABC(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                landmarks=args.landmarks,
+                causal=False
+            )
+        elif attn_type == 'amlpseq':
+            return AMLPSeq(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                activation_fn=args.amlp_activation
+            )
         return MultiheadAttention(
             embed_dim,
             args.encoder_attention_heads,

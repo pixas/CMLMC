@@ -3,20 +3,20 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
+import logging
 import math
 from typing import Dict, Optional, Tuple
 
 import torch
 import torch.nn.functional as F
-from torch import Tensor, nn
-from torch.nn import Parameter
-
+from efficient_attention import ABC, AMLP, AMLPSeq
 from fairseq import utils
 from fairseq.incremental_decoding_utils import with_incremental_state
 from fairseq.modules.fairseq_dropout import FairseqDropout
 from fairseq.modules.quant_noise import quant_noise
-from efficient_attention import AMLP, AMLPSeq
-from efficient_attention import ABC
+from torch import Tensor, nn
+from torch.nn import Parameter
+
 
 @with_incremental_state
 class MultiheadAttention(nn.Module):
