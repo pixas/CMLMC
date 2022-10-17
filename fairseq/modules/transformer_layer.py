@@ -244,7 +244,10 @@ class TransformerDecoderLayer(nn.Module):
         return quant_noise(nn.Linear(input_dim, output_dim), q_noise, qn_block_size)
 
     def build_self_attention(self, embed_dim, args, add_bias_kv=False, add_zero_attn=False):
-        attn_type = args.decoder_self_attention_type
+        try:
+            attn_type = args.decoder_self_attention_type
+        except:
+            attn_type = 'mha'
         if attn_type == 'abc':
             return ABC(
                 embed_dim=embed_dim,
@@ -277,7 +280,10 @@ class TransformerDecoderLayer(nn.Module):
         )
 
     def build_encoder_attention(self, embed_dim, args):
-        attn_type = args.decoder_cross_attention_type
+        try:
+            attn_type = args.decoder_cross_attention_type
+        except:
+            attn_type = 'mha'
         if attn_type == 'abc':
             return ABC(
                 embed_dim=embed_dim,
