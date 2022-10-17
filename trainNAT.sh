@@ -23,7 +23,7 @@ python train.py "/nvme/jsy/data-bin/iwslt14_deen_jointdict" \
     --max-epoch 300 \
     --fixed-validation-seed 7 \
     --fp16 \
-    --save-dir /nvme/jsy/checkpoints/IWSLTdeen_raw_CMLM_benchmark/ --keep-last\
+    --save-dir /nvme/jsy/checkpoints/IWSLTdeen_raw_CMLM_benchmark/ \
 
 python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLM_benchmark 80 300
 
