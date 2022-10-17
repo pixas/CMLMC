@@ -277,7 +277,7 @@ class IterativeRefinementGenerator(object):
             # aggregate information from length beam
             finalized = [
                 finalized[np.argmax(
-                    [finalized[self.beam_size * i + j][0]['score'] for j in range(self.beam_size)]
+                    [finalized[self.beam_size * i + j][0]['score'].cpu() for j in range(self.beam_size)]
                     ) + self.beam_size * i] for i in range(len(finalized) // self.beam_size)
                 ]
 
