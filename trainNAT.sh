@@ -47,7 +47,7 @@ python train.py "/nvme/jsy/data-bin/iwslt14_deen_jointdict" \
    --encoder-learned-pos \
    --apply-bert-init \
    --share-all-embeddings \
-   --max-tokens 8192 \
+   --max-tokens 1024 \
    --max-epoch 300 \
    --fixed-validation-seed 7 \
    --fp16 \
@@ -95,7 +95,7 @@ python train.py "/nvme/jsy/data-bin/wmt14_deen_jointdict" \
 python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLMC_L5D3_30k 100 150
 
 
-python train.py "/nvme/jsy/data-bin/wmt14_ende_jointdict" \
+python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
    --arch cmlm_transformer_wmt_en_de \
    -s en \
    -t de \
@@ -116,7 +116,8 @@ python train.py "/nvme/jsy/data-bin/wmt14_ende_jointdict" \
    --apply-bert-init \
    --share-all-embeddings \
    --max-tokens 8192 \
-   --max-update 300000 \
+   --max-update 150000 \
+   --max-epoch 250 \
    --fixed-validation-seed 7 \
    --fp16 \
    --no-scale-embedding \
@@ -124,6 +125,6 @@ python train.py "/nvme/jsy/data-bin/wmt14_ende_jointdict" \
    --concatPE \
    --selfcorrection 0 \
    --replacefactor 0.3 \
-   --save-dir /nvme/jsy/checkpoints/IWSLTdeen_raw_CMLMC_L5D3_300k/ \
+   --save-dir /nvme/jsy/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k/ \
 
-python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLMC_L5D3_30k 100 150
+python InferenceWMT_valid.py WMTdeen_raw_CMLMC_L5D3_30k 50 64

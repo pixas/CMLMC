@@ -166,9 +166,9 @@ cd ../..
 TEXT=examples/translation/wmt17_en_de
 fairseq-preprocess \
     --source-lang en --target-lang de \
-    --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \
-    --destdir data-bin/wmt17_en_de --thresholdtgt 0 --thresholdsrc 0 \
-    --workers 20
+    --trainpref $TEXT/train.en-de --validpref $TEXT/valid.en-de --testpref $TEXT/test.en-de \
+    --destdir /nvme/jsy/data-bin/wmt14_ende_distill_joined --thresholdtgt 0 --thresholdsrc 0 \
+    --workers 20 --joined-dictionary
 
 # Train the model
 mkdir -p checkpoints/fconv_wmt_en_de
