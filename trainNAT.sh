@@ -125,6 +125,6 @@ python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
    --concatPE \
    --selfcorrection 0 \
    --replacefactor 0.3 \
-   --save-dir /nvme/jsy/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k/ \
+   --save-dir /nvme/jsy/checkpoints/WMTende_distill_CMLMC_L5D3_300k/ \
 
-python InferenceWMT_valid.py WMTdeen_raw_CMLMC_L5D3_30k 50 64
+python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k 50 64
