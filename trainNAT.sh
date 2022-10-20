@@ -95,7 +95,7 @@ python train.py "/nvme/jsy/data-bin/wmt14_deen_jointdict" \
 python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLMC_L5D3_30k 100 150
 
 
-python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
+CUDA_VISIBLE_DEVICES=3,5 python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
    --arch cmlm_transformer_wmt_en_de \
    -s en \
    -t de \
@@ -115,8 +115,8 @@ python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
    --encoder-learned-pos \
    --apply-bert-init \
    --share-all-embeddings \
-   --max-tokens 8192 \
-   --max-update 150000 \
+   --max-tokens 32768 \
+   --max-update 300000 \
    --max-epoch 250 \
    --fixed-validation-seed 7 \
    --fp16 \
@@ -125,6 +125,6 @@ python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
    --concatPE \
    --selfcorrection 0 \
    --replacefactor 0.3 \
-   --save-dir /nvme/jsy/checkpoints/WMTende_distill_CMLMC_L5D3_300k/ \
+   --save-dir /nvme/jsy/checkpoints/WMTende_distill_CMLMC_L5D3_300k_bsz64k/ \
 
-python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k 50 64
+CUDA_VISIBLE_DEVICES=7 python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k 80 100
