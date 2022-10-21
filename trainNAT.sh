@@ -95,7 +95,7 @@ python train.py "/nvme/jsy/data-bin/wmt14_deen_jointdict" \
 python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLMC_L5D3_30k 100 150
 
 
-CUDA_VISIBLE_DEVICES=3,5 python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
+CUDA_VISIBLE_DEVICES=3,5,6,7 python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_jointdict" \
    --arch cmlm_transformer_wmt_en_de \
    -s en \
    -t de \
@@ -107,7 +107,7 @@ CUDA_VISIBLE_DEVICES=3,5 python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_
    --noise random_mask \
    --lr-scheduler inverse_sqrt \
    --warmup-init-lr '1e-07' \
-   --lr 0.0007 \
+   --lr 0.0005 \
    --warmup-updates 40000 \
    --dropout 0.2 \
    --weight-decay 0.01 \
@@ -115,7 +115,7 @@ CUDA_VISIBLE_DEVICES=3,5 python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_
    --encoder-learned-pos \
    --apply-bert-init \
    --share-all-embeddings \
-   --max-tokens 32768 \
+   --max-tokens 16384 \
    --max-update 300000 \
    --max-epoch 250 \
    --fixed-validation-seed 7 \
@@ -123,8 +123,13 @@ CUDA_VISIBLE_DEVICES=3,5 python train.py "/nvme/jsy/data-bin/wmt14_ende_distill_
    --no-scale-embedding \
    --insertCausalSelfAttn \
    --concatPE \
+   --landmarks 16 \
+   --amlp-activation 'softmax' \
+   --encoder-self-attention-type 'amlpseq' \
+   --decoder-cross-attention-type 'amlpseq' \
+   --decoder-self-attention-type 'amlpseq' \
    --selfcorrection 0 \
    --replacefactor 0.3 \
-   --save-dir /nvme/jsy/checkpoints/WMTende_distill_CMLMC_L5D3_300k_bsz64k/ \
+   --save-dir /nvme/jsy/checkpoints/WMTende_distill_CMLMC_L5D3_300k_amlpseq_bsz64k/ \
 
-CUDA_VISIBLE_DEVICES=7 python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k 80 100
+CUDA_VISIBLE_DEVICES=3 python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k_bsz64k 100 151
