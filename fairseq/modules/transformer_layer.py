@@ -13,6 +13,9 @@ from fairseq.modules.fairseq_dropout import FairseqDropout
 from fairseq.modules.multihead_attention import FSABC as ABC
 from fairseq.modules.multihead_attention import FSAMLP as AMLP
 from fairseq.modules.multihead_attention import FSAMLPSeq as AMLPSeq
+from fairseq.modules.multihead_attention import FSCovAMLP as CovAMLP
+from fairseq.modules.multihead_attention import FSCovAMLP2 as CovAMLP2
+from fairseq.modules.multihead_attention import FSCovAMLP3 as CovAMLP3
 from fairseq.modules.quant_noise import quant_noise
 from torch import Tensor
 
@@ -77,8 +80,34 @@ class TransformerEncoderLayer(nn.Module):
                 embed_dim=embed_dim,
                 num_heads=args.decoder_attention_heads,
                 dropout=args.attention_dropout,
-                landmarks=args.landmarks,
-                causal=False
+                num_landmarks=args.landmarks,
+                causal=False,
+
+            )
+        elif attn_type == 'amlp':
+            return AMLP(
+                embed_dim=embed_dim,
+                num_heads=args.encoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                activation_fn=args.amlp_activation,
+                add_norm=True
+            )
+        elif attn_type == 'covamlp':
+            return CovAMLP(
+                embed_dim=embed_dim,
+                num_heads=args.encoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
+            )
+        elif attn_type == 'covamlp2':
+            return CovAMLP2(
+                embed_dim=embed_dim,
+                num_heads=args.encoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
             )
         elif attn_type == 'amlpseq':
             return AMLPSeq(
@@ -86,7 +115,8 @@ class TransformerEncoderLayer(nn.Module):
                 num_heads=args.decoder_attention_heads,
                 dropout=args.attention_dropout,
                 ffn_dimension=args.landmarks,
-                activation_fn=args.amlp_activation
+                activation_fn=args.amlp_activation,
+                add_norm=True
             )
         return MultiheadAttention(
             embed_dim,
@@ -196,7 +226,7 @@ class TransformerDecoderLayer(nn.Module):
         self.noLN = args.dont_use_layernorm
 
         if self.insertCausalSelfAttn:
-            self.self_attn_unmasked = self.build_self_attention(
+            self.self_attn_unmasked = self.build_causal_self_attention(
                 self.embed_dim,
                 args,
                 add_bias_kv=add_bias_kv,
@@ -260,6 +290,18 @@ class TransformerDecoderLayer(nn.Module):
     def build_fc2(self, input_dim, output_dim, q_noise, qn_block_size):
         return quant_noise(nn.Linear(input_dim, output_dim), q_noise, qn_block_size)
 
+    def build_causal_self_attention(self, embed_dim, args, add_bias_kv=False, add_zero_attn=False):
+        
+        return MultiheadAttention(
+            embed_dim,
+            args.decoder_attention_heads,
+            dropout=args.attention_dropout,
+            add_bias_kv=add_bias_kv,
+            add_zero_attn=add_zero_attn,
+            self_attention=not getattr(args, "cross_self_attention", False),
+            q_noise=self.quant_noise,
+            qn_block_size=self.quant_noise_block_size,
+        )
     def build_self_attention(self, embed_dim, args, add_bias_kv=False, add_zero_attn=False):
         try:
             attn_type = args.decoder_self_attention_type
@@ -272,8 +314,34 @@ class TransformerDecoderLayer(nn.Module):
                 dropout=args.attention_dropout,
                 add_bias_kv=add_bias_kv,
                 add_zero_attn=add_zero_attn,
-                landmarks=args.landmarks,
+                num_landmarks=args.landmarks,
                 causal=False
+            )
+        elif attn_type == 'covamlp':
+            return CovAMLP(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
+            )
+        elif attn_type == 'covamlp2':
+            return CovAMLP2(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
+                cross=False,
+            )
+        elif attn_type == 'amlp':
+            return AMLP(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                activation_fn=args.amlp_activation,
+                add_norm=True
             )
         elif attn_type == 'amlpseq':
             return AMLPSeq(
@@ -283,7 +351,8 @@ class TransformerDecoderLayer(nn.Module):
                 add_bias_kv=add_bias_kv,
                 add_zero_attn=add_zero_attn,
                 ffn_dimension=args.landmarks,
-                activation_fn=args.amlp_activation
+                activation_fn=args.amlp_activation,
+                add_norm=True
             )
         return MultiheadAttention(
             embed_dim,
@@ -306,8 +375,43 @@ class TransformerDecoderLayer(nn.Module):
                 embed_dim=embed_dim,
                 num_heads=args.decoder_attention_heads,
                 dropout=args.attention_dropout,
-                landmarks=args.landmarks,
+                num_landmarks=args.landmarks,
                 causal=False
+            )
+        elif attn_type == 'covamlp':
+            return CovAMLP(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
+            )
+        elif attn_type == 'covamlp2':
+            return CovAMLP2(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
+                cross=True,
+            )
+        elif attn_type == 'covamlp3':
+            return CovAMLP3(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                conv_kernel_size=5,
+                cross=True,
+            )
+        elif attn_type == 'amlp':
+            return AMLP(
+                embed_dim=embed_dim,
+                num_heads=args.decoder_attention_heads,
+                dropout=args.attention_dropout,
+                ffn_dimension=args.landmarks,
+                activation_fn=args.amlp_activation,
+                add_norm=True
             )
         elif attn_type == 'amlpseq':
             return AMLPSeq(
@@ -315,7 +419,8 @@ class TransformerDecoderLayer(nn.Module):
                 num_heads=args.decoder_attention_heads,
                 dropout=args.attention_dropout,
                 ffn_dimension=args.landmarks,
-                activation_fn=args.amlp_activation
+                activation_fn=args.amlp_activation,
+                add_norm=True
             )
         return MultiheadAttention(
             embed_dim,

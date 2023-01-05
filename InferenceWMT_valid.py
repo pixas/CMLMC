@@ -5,17 +5,26 @@ import os
 modelname = sys.argv[1]
 start = int(sys.argv[2])
 end = int(sys.argv[3])
+checkpointfolder = sys.argv[4]
 
-checkpointfolder = '/nvme/jsy/checkpoints/'
+try:
+    bleufolder = sys.argv[5]
+except:
+    bleufolder = "/mnt/petrelfs/jiangshuyang/checkpoints/BLEU/"
+try:
+    datafolder = sys.argv[6]
+except:
+    datafolder = "/mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict/"
+
+# checkpointfolder = '/nvme/jsy/checkpoints/'
 modelfolder = checkpointfolder + modelname + '/'
 ensemblefolder = modelfolder + 'ensemblemodel/'
-
 batch=100
 
 if 'CMLM' in modelname:
-    bleufolder = '/nvme/jsy/BLEU/' + modelname + '/bestvalid_iter10_LEN3/'
+    bleufolder = bleufolder + modelname + '/bestvalid_iter10_LEN3/'
 else:
-    bleufolder = '/nvme/jsy/BLEU/' + modelname + '/bestvalid_beam4/'
+    bleufolder = bleufolder + modelname + '/bestvalid_beam4/'
 
 os.system('mkdir -p {}'.format(bleufolder))
 os.system('mkdir -p {}'.format(ensemblefolder))
@@ -40,14 +49,14 @@ for j in jlist:
         if 'WMTdeen' in modelname:
             if 'CMLM' in modelname:
                 if 'distill' in modelname:
-                    command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_distill_jointdict/ --gen-subset valid --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --remove-bpe --iter-decode-force-max-iter --iter-decode-with-beam 3 --quiet | tee {}'.format(
+                    command = 'python generate.py {} --gen-subset valid --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --remove-bpe --iter-decode-force-max-iter --iter-decode-with-beam 3 --quiet | tee {}'.format(datafolder,
                         cpname, batch, bleu)
                 else:
                     command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_jointdict/ --gen-subset valid --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --remove-bpe --iter-decode-force-max-iter --iter-decode-with-beam 3 --quiet | tee {}'.format(
                         cpname, batch, bleu)
             else:
                 if 'distill' in modelname:
-                    command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_distill_jointdict/ --gen-subset valid --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 --quiet | tee {}'.format(
+                    command = 'python generate.py {} --gen-subset valid --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 --quiet | tee {}'.format(datafolder,
                         cpname, bleu)
                 else:
                     command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_jointdict/ --gen-subset valid --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 --quiet | tee {}'.format(
@@ -55,14 +64,14 @@ for j in jlist:
         elif 'WMTende' in modelname:
             if 'CMLM' in modelname:
                 if 'distill' in modelname:
-                    command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_distill_jointdict/ --gen-subset valid --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --remove-bpe --iter-decode-force-max-iter --iter-decode-with-beam 3 --quiet | tee {}'.format(
+                    command = 'python generate.py {} --gen-subset valid --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --remove-bpe --iter-decode-force-max-iter --iter-decode-with-beam 3 --quiet | tee {}'.format(datafolder,
                         cpname, batch, bleu)
                 else:
                     command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_jointdict/ --gen-subset valid --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --remove-bpe --iter-decode-force-max-iter --iter-decode-with-beam 3 --quiet | tee {}'.format(
                         cpname, batch, bleu)
             else:
                 if 'distill' in modelname:
-                    command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_distill_jointdict/ --gen-subset valid --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 --quiet | tee {}'.format(
+                    command = 'python generate.py {} --gen-subset valid --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 --quiet | tee {}'.format(datafolder,
                         cpname, bleu)
                 else:
                     command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_jointdict/ --gen-subset valid --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 --quiet | tee {}'.format(
@@ -126,32 +135,32 @@ for n in [5, 10]:
     if 'WMTdeen' in modelname:
         if 'CMLM' in modelname:
             if 'distill' in modelname:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_distill_jointdict/ --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(
+                command = 'python generate.py {} --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(datafolder,
                     bestensemble, batch, bleu)
             else:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_jointdict/ --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(
+                command = 'python generate.py {} --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(datafolder,
                     bestensemble, batch, bleu)
         else:
             if 'distill' in modelname:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_distill_jointdict/ --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(
+                command = 'python generate.py {} --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(datafolder,
                     bestensemble, bleu)
             else:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_deen_jointdict/ --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(
+                command = 'python generate.py {} --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(datafolder,
                     bestensemble, bleu)
     if 'WMTende' in modelname:
         if 'CMLM' in modelname:
             if 'distill' in modelname:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_distill_jointdict/ --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(
+                command = 'python generate.py {} --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(datafolder,
                     bestensemble, batch, bleu)
             else:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_jointdict/ --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(
+                command = 'python generate.py {} --gen-subset test --task translation_lev --path {} --batch-size {} --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe | tee {}'.format(datafolder,
                     bestensemble, batch, bleu)
         else:
             if 'distill' in modelname:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_distill_jointdict/ --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(
+                command = 'python generate.py {} --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(datafolder,
                     bestensemble, bleu)
             else:
-                command = 'python generate.py /nvme/jsy/data-bin/wmt14_ende_jointdict/ --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(
+                command = 'python generate.py {} --path {} --beam 4 --batch-size 128 --remove-bpe --lenpen 0.3 | tee {}'.format(datafolder,
                     bestensemble, bleu)
 
     os.system(command)

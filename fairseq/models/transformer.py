@@ -178,6 +178,11 @@ class TransformerModel(FairseqEncoderDecoderModel):
                                  'that this must be used together with the NAT framework, else will cause leaking')
         parser.add_argument('--concatPE', default=False, action='store_true',
                             help='if set, instead of summing embedding vectors to PE, concatenate the halved dimensions')
+        parser.add_argument('--landmarks', default=16, type=int)
+        parser.add_argument('--decoder-self-attention-type', default='mha')
+        parser.add_argument('--decoder-cross-attention-type', default='mha')
+        parser.add_argument('--encoder-self-attention-type', default='mha')
+        parser.add_argument('--amlp-activation', default='softmax')
 
         # fmt: on
 

@@ -9,7 +9,7 @@ from typing import Dict, Optional, Tuple
 
 import torch
 import torch.nn.functional as F
-from efficient_attention import ABC, AMLP, AMLPSeq
+from efficient_attention import ABC, AMLP, AMLPSeq, CovAMLP, CovAMLP2, CovAMLP3
 from fairseq import utils
 from fairseq.incremental_decoding_utils import with_incremental_state
 from fairseq.modules.fairseq_dropout import FairseqDropout
@@ -57,6 +57,7 @@ class MultiheadAttention(nn.Module):
         relativeattn=False
     ):
         super().__init__()
+        logging.info(f'Using efficient attention MultiheadAttention')
         self.embed_dim = embed_dim
         self.kdim = kdim if kdim is not None else embed_dim
         self.vdim = vdim if vdim is not None else embed_dim
@@ -607,4 +608,16 @@ class FSAMLPSeq(AMLPSeq):
 
 @fsmha 
 class FSABC(ABC):
+    pass
+
+@fsmha 
+class FSCovAMLP(CovAMLP):
+    pass
+
+@fsmha 
+class FSCovAMLP2(CovAMLP2):
+    pass
+
+@fsmha 
+class FSCovAMLP3(CovAMLP3):
     pass
