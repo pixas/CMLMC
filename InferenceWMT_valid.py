@@ -25,9 +25,11 @@ if 'CMLM' in modelname:
     bleufolder = bleufolder + modelname + '/bestvalid_iter10_LEN3/'
 else:
     bleufolder = bleufolder + modelname + '/bestvalid_beam4/'
-
-os.system('mkdir -p {}'.format(bleufolder))
-os.system('mkdir -p {}'.format(ensemblefolder))
+is_s3_path = "s3://" in checkpointfolder
+if not is_s3_path:
+    
+    os.system('mkdir -p {}'.format(bleufolder))
+    os.system('mkdir -p {}'.format(ensemblefolder))
 
 try:
     validbleu = torch.load(bleufolder+'validbleu.pt')

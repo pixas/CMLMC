@@ -9,6 +9,7 @@ from typing import Dict, Optional, Tuple
 
 import torch
 import torch.nn.functional as F
+
 from efficient_attention import ABC, AMLP, AMLPSeq, CovAMLP, CovAMLP2, CovAMLP3
 from fairseq import utils
 from fairseq.incremental_decoding_utils import with_incremental_state

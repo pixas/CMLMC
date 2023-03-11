@@ -1,0 +1,778 @@
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+/mnt/petrelfs/jiangshuyang/.local/lib/python3.7/site-packages/torch/nn/parallel/distributed.py:468: UserWarning: The `check_reduction` argument in `DistributedDataParallel` module is deprecated. Please avoid using it.
+  "The `check_reduction` argument in `DistributedDataParallel` "
+/mnt/petrelfs/jiangshuyang/.local/lib/python3.7/site-packages/torch/nn/parallel/distributed.py:468: UserWarning: The `check_reduction` argument in `DistributedDataParallel` module is deprecated. Please avoid using it.
+  "The `check_reduction` argument in `DistributedDataParallel` "
+/mnt/petrelfs/jiangshuyang/.local/lib/python3.7/site-packages/torch/nn/parallel/distributed.py:468: UserWarning: The `check_reduction` argument in `DistributedDataParallel` module is deprecated. Please avoid using it.
+  "The `check_reduction` argument in `DistributedDataParallel` "
+/mnt/petrelfs/jiangshuyang/.local/lib/python3.7/site-packages/torch/nn/parallel/distributed.py:468: UserWarning: The `check_reduction` argument in `DistributedDataParallel` module is deprecated. Please avoid using it.
+  "The `check_reduction` argument in `DistributedDataParallel` "
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+/mnt/petrelfs/jiangshuyang/repo/efficient-attention/efficient_attention/abc.py:139: UserWarning: `attn_mask` arguments make no sense in `ABC`
+  warnings.warn("`attn_mask` arguments make no sense in `ABC`")
+/mnt/petrelfs/jiangshuyang/repo/efficient-attention/efficient_attention/abc.py:139: UserWarning: `attn_mask` arguments make no sense in `ABC`
+  warnings.warn("`attn_mask` arguments make no sense in `ABC`")
+/mnt/petrelfs/jiangshuyang/repo/efficient-attention/efficient_attention/abc.py:139: UserWarning: `attn_mask` arguments make no sense in `ABC`
+  warnings.warn("`attn_mask` arguments make no sense in `ABC`")
+/mnt/petrelfs/jiangshuyang/repo/efficient-attention/efficient_attention/abc.py:139: UserWarning: `attn_mask` arguments make no sense in `ABC`
+  warnings.warn("`attn_mask` arguments make no sense in `ABC`")
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:root:ceph manager has not be registered
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager
+WARNING:fairseq.checkpoint_utils:no ceph manager

@@ -10,15 +10,21 @@ import re
 import traceback
 from collections import OrderedDict
 from typing import Union
-
+import io
 import torch
-from fairseq.file_io import PathManager
+from fairseq.file_io import PathManager, CEPHFileUtil
 from fairseq.models import FairseqDecoder, FairseqEncoder
 from torch.serialization import default_restore_location
 
 
 logger = logging.getLogger(__name__)
 
+
+try:
+    ceph_util = CEPHFileUtil()
+except:
+    logger.warning("no ceph manager")
+    ceph_util = None
 
 def save_checkpoint(args, trainer, epoch_itr, val_loss):
     from fairseq import distributed_utils, meters
@@ -101,6 +107,8 @@ def save_checkpoint(args, trainer, epoch_itr, val_loss):
         for old_chk in checkpoints[args.keep_interval_updates :]:
             if os.path.lexists(old_chk):
                 os.remove(old_chk)
+            elif PathManager.exists(old_chk):
+                PathManager.rm(old_chk)
 
     if args.keep_last_epochs > 0:
         # remove old epoch checkpoints; checkpoints are sorted in descending order
@@ -108,6 +116,8 @@ def save_checkpoint(args, trainer, epoch_itr, val_loss):
         for old_chk in checkpoints[args.keep_last_epochs :]:
             if os.path.lexists(old_chk):
                 os.remove(old_chk)
+            elif PathManager.exists(old_chk):
+                PathManager.rm(old_chk)
 
     if args.keep_best_checkpoints > 0:
         # only keep the best N checkpoints according to validation metric
@@ -115,9 +125,11 @@ def save_checkpoint(args, trainer, epoch_itr, val_loss):
             args.save_dir, pattern=r"checkpoint\.best_{}_(\d+\.?\d*)\.pt".format(args.best_checkpoint_metric))
         if not args.maximize_best_checkpoint_metric:
             checkpoints = checkpoints[::-1]
-        for old_chk in checkpoints[args.keep_best_checkpoints:]:
+        for old_chk in checkpoints[args.keep_best_checkpoints :]:
             if os.path.lexists(old_chk):
                 os.remove(old_chk)
+            elif PathManager.exists(old_chk):
+                PathManager.rm(old_chk)
 
 
 def load_checkpoint(args, trainer, **passthrough_args):
@@ -200,10 +212,34 @@ def load_checkpoint(args, trainer, **passthrough_args):
 
 def load_checkpoint_to_cpu(path, arg_overrides=None):
     """Loads a checkpoint to CPU (with upgrading for backward compatibility)."""
-    with PathManager.open(path, "rb") as f:
-        state = torch.load(
-            f, map_location=lambda s, l: default_restore_location(s, "cpu")
-        )
+    # with PathManager.open(path, "rb") as f:
+    #     state = torch.load(
+    #         f, map_location=lambda s, l: default_restore_location(s, "cpu")
+    #     )
+    local_path = PathManager.get_local_path(path)
+    # The locally cached file returned by get_local_path() may be stale for
+    # remote files that are periodically updated/overwritten (ex:
+    # checkpoint_last.pt) - so we remove the local copy, sync across processes
+    # (if needed), and then download a fresh copy.
+    if local_path != path and PathManager.path_requires_pathmanager(path):
+        try:
+            if ceph_util is None:
+                os.remove(local_path)
+            else:
+                ceph_util.remove(local_path)
+        except FileNotFoundError:
+            # With potentially multiple processes removing the same file, the
+            # file being missing is benign (missing_ok isn't available until
+            # Python 3.8).
+            pass
+        
+        local_path = PathManager.get_local_path(path)
+
+    if ceph_util is None:
+        with open(local_path, "rb") as f:
+            state = torch.load(f, map_location=torch.device("cpu"))
+    else:
+        state = ceph_util.load_checkpoint(local_path, torch.device("cpu"))
 
     args = state["args"]
     if arg_overrides is not None:
@@ -257,7 +293,7 @@ def checkpoint_paths(path, pattern=r"checkpoint(\d+)\.pt"):
     descending order.
     """
     pt_regexp = re.compile(pattern)
-    files = os.listdir(path)
+    files = PathManager.ls(path)
 
     entries = []
     for i, f in enumerate(files):
@@ -268,18 +304,55 @@ def checkpoint_paths(path, pattern=r"checkpoint(\d+)\.pt"):
     return [os.path.join(path, x[1]) for x in sorted(entries, reverse=True)]
 
 
-def torch_persistent_save(obj, f):
-    if isinstance(f, str):
+# def torch_persistent_save(obj, f):
+#     if isinstance(f, str):
+#         with PathManager.open(f, "wb") as h:
+#             torch_persistent_save(obj, h)
+#         return
+#     for i in range(3):
+#         try:
+#             return torch.save(obj, f)
+#         except Exception:
+#             if i == 2:
+#                 logger.error(traceback.format_exc())
+def torch_persistent_save(obj, filename, async_write: bool = False):
+    is_s3_path = "s3://" in filename
+    if async_write:
+        with PathManager.opena(filename, "wb") as f:
+            _torch_persistent_save(obj, f, is_s3_path)
+    else:
+        if PathManager.supports_rename(filename):
+            # do atomic save
+            with PathManager.open(filename + ".tmp", "wb") as f:
+                _torch_persistent_save(obj, f, is_s3_path)
+            PathManager.rename(filename + ".tmp", filename)
+        else:
+            # fallback to non-atomic save
+            if is_s3_path:
+                _torch_persistent_save(obj, filename, is_s3_path)
+            else:
+                with PathManager.open(filename, "wb") as f:
+                    _torch_persistent_save(obj, f, is_s3_path)
+
+
+def _torch_persistent_save(obj, f, is_s3_path=False):
+    if isinstance(f, str) and not is_s3_path:
         with PathManager.open(f, "wb") as h:
             torch_persistent_save(obj, h)
         return
     for i in range(3):
         try:
-            return torch.save(obj, f)
+            if is_s3_path:
+                with io.BytesIO() as stream:
+                    torch.save(obj, stream)
+                    stream.seek(0)
+                    return PathManager.get_ceph_manager().write(f, stream)
+            else:
+                return torch.save(obj, f)
         except Exception:
             if i == 2:
                 logger.error(traceback.format_exc())
-
+                raise
 
 def save_state(
     filename,
@@ -319,9 +392,9 @@ def save_state(
 
     # convert all state to CPU
     state_dict = utils.move_to_cpu(state_dict)
-
-    with PathManager.open(filename, "wb") as f:
-        torch_persistent_save(state_dict, f)
+    torch_persistent_save(state_dict, filename)
+    # with PathManager.open(filename, "wb") as f:
+    #     torch_persistent_save(state_dict, f)
 
 
 def _upgrade_state_dict(state):
@@ -517,15 +590,51 @@ def load_pretrained_component_from_model(
     return component
 
 
+# def verify_checkpoint_directory(save_dir: str) -> None:
+#     if not os.path.exists(save_dir):
+#         os.makedirs(save_dir, exist_ok=True)
+#     temp_file_path = os.path.join(save_dir, "dummy")
+#     try:
+#         with open(temp_file_path, "w"):
+#             pass
+#     except OSError as e:
+#         logger.warning("Unable to access checkpoint save directory: {}".format(save_dir))
+#         raise e
+#     else:
+#         os.remove(temp_file_path)
 def verify_checkpoint_directory(save_dir: str) -> None:
-    if not os.path.exists(save_dir):
+    def local_path_check(save_dir):
+        temp_file_path = os.path.join(save_dir, "dummy")
         os.makedirs(save_dir, exist_ok=True)
-    temp_file_path = os.path.join(save_dir, "dummy")
-    try:
-        with open(temp_file_path, "w"):
-            pass
-    except OSError as e:
-        logger.warning("Unable to access checkpoint save directory: {}".format(save_dir))
-        raise e
+        try:
+            with open(temp_file_path, "w"):
+                pass
+        except OSError as e:
+            logging.warning(
+                "Unable to access checkpoint save directory: {}".format(save_dir)
+            )
+            raise e
+        else:
+            os.remove(temp_file_path)
+
+    def ceph_path_check(save_dir):
+        data = torch.tensor([0, 1, 2, 3])
+        tmp_path = os.path.join(save_dir, "tensor_data")
+        try:
+            with io.BytesIO() as f:
+                torch.save(data, f)
+                ceph_util.ceph_handler.write(tmp_path, f.getvalue())
+        except OSError as e:
+            logging.warning(
+                "Unable to access checkpoint save directory: {}".format(save_dir)
+            )
+            raise e
+        else:
+            ceph_util.ceph_handler.remove(tmp_path)
+
+    if "s3://" in save_dir:
+        ceph_util.make_dirs(save_dir, exist_ok=True)
+        ceph_path_check(save_dir)
     else:
-        os.remove(temp_file_path)
+        os.path.exists(save_dir)
+        local_path_check(save_dir)

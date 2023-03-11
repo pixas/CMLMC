@@ -61,7 +61,7 @@ python train.py "/nvme/jsy/data-bin/iwslt14_deen_jointdict" \
 python InferenceIWSLT_valid.py IWSLTdeen_raw_CMLMC_L5D3_30k 150 300
 
 
-srun -p NLP --gres=gpu:4 -N1 --quotatype=spot --async -o amlpbothself_amlpseqcross_w5.txt  python train.py "/mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict" \
+srun -p NLP --gres=gpu:4 -N1 --quotatype=reserved --async -o baseline_causalself.txt  python train.py "/mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict" \
    --arch cmlm_transformer_wmt_en_de \
    -s de \
    -t en \
@@ -89,25 +89,29 @@ srun -p NLP --gres=gpu:4 -N1 --quotatype=spot --async -o amlpbothself_amlpseqcro
    --eval-bleu --eval-bleu-args '{"iter_decode_max_iter": 0, "iter_decode_with_beam": 1}' \
     --eval-tokenized-bleu --eval-bleu-remove-bpe \
    --landmarks 16 \
+   --insertCausalSelfAttn \
    --amlp-activation 'softmax' \
-   --encoder-self-attention-type 'covamlp2' \
-   --decoder-cross-attention-type 'amlpseq' \
-   --decoder-self-attention-type 'covamlp2' \
+   --encoder-self-attention-type 'mha' \
+   --decoder-cross-attention-type 'mha' \
+   --decoder-self-attention-type 'mha' \
    --no-scale-embedding \
    --concatPE \
+   --add_ema 0.99 \
    --selfcorrection 0 \
    --replacefactor 0.3 \
-   --save-dir /mnt/cache/jiangshuyang/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k_covamlpbothself_amlpseqcross_w5/ --ddp-backend=no_c10d 
+   --save-dir /mnt/petrelfs/jiangshuyang/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k_causalself_baseline/ --ddp-backend=no_c10d 
 
 
 
-python InferenceWMT_valid.py WMTdeen_distill_CMLMC_L5D3_300k_covamlpbothself_amlpseqcross_w5 110 129  /mnt/petrelfs/jiangshuyang/checkpoints/
+python InferenceWMT_valid.py WMTdeen_distill_CMLMC_L5D3_300k_causalself_abc_decoder_ema099 132 151  /mnt/petrelfs/jiangshuyang/checkpoints/
 
-python generate.py /mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict --gen-subset test --task translation_lev --path /mnt/petrelfs/jiangshuyang/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k_ablate_nocausal_abc/checkpoint_best.pt --batch-size 128 --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe --quiet
+python InferenceWMT_valid.py WMTdeen_distill_CMLMC_L5D3_300k_abc_all 132 151  /mnt/petrelfs/jiangshuyang/checkpoints/
+s3://syjiang_bucket/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k_baseline/
+python generate.py /mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict --gen-subset test --task translation_lev --path /mnt/petrelfs/jiangshuyang/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k_covamlpbothself_amlpseqcross_w5/checkpoint_best.pt --batch-size 128 --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe --quiet
 
-python generate.py /mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict --gen-subset test --task translation_lev --path /mnt/petrelfs/jiangshuyang/checkpoints/WMTdeen_distill_CMLMC_L5D3_300k_ablate_nocausal/LEN3_bestmodel_bestvalid_ensemble10_epoch100_144.pt --batch-size 128 --iter-decode-max-iter 1 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe --quiet
+python generate.py /mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict --gen-subset test --task translation_lev --path $CKPT_DIR/ckpt_avg10.pt --batch-size 128 --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe --quiet
 
-srun -p NLP --gres=gpu:4 -N1 --quotatype=reserved python train.py "/mnt/petrelfs/jiangshuyang/data-bin/wmt14_ende_distill_jointdict" \
+srun -p NLP --gres=gpu:4 -N1 --quotatype=spot --async -o amlpseq_ende_causalself.txt  python train.py "/mnt/petrelfs/jiangshuyang/data-bin/wmt14_ende_distill_jointdict" \
    --arch cmlm_transformer_wmt_en_de \
    -s en \
    -t de \
@@ -129,19 +133,23 @@ srun -p NLP --gres=gpu:4 -N1 --quotatype=reserved python train.py "/mnt/petrelfs
    --share-all-embeddings \
    --max-tokens 16384 \
    --max-update 300000 \
-   --max-epoch 250 \
    --fixed-validation-seed 7 \
    --fp16 \
-   --no-scale-embedding \
-   --concatPE \
    --keep-last-epochs 20 \
-   --selfcorrection 0 \
-   --replacefactor 0.3 \
+   --eval-bleu --eval-bleu-args '{"iter_decode_max_iter": 0, "iter_decode_with_beam": 1}' \
+    --eval-tokenized-bleu --eval-bleu-remove-bpe \
    --landmarks 16 \
+   --insertCausalSelfAttn \
    --amlp-activation 'softmax' \
    --encoder-self-attention-type 'mha' \
    --decoder-cross-attention-type 'amlpseq' \
-   --decoder-self-attention-type 'covamlp2' \
-   --save-dir /mnt/petrelfs/jiangshuyang/checkpoints/WMTende_distill_CMLMC_L5D3_300k_bsz64k_covamlp_decoderself_amlpseqcross  --ddp-backend=no_c10d
+   --decoder-self-attention-type 'amlpseq' \
+   --no-scale-embedding \
+   --concatPE \
+   --selfcorrection 0 \
+   --replacefactor 0.3 \
+   --save-dir /mnt/petrelfs/jiangshuyang/checkpoints/WMTende_distill_CMLMC_L5D3_300k_amlpseq_decoder_causalself/ --ddp-backend=no_c10d 
 
-python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k_bsz64k_covamlp_decoderself_amlpseqcross 89 108 /mnt/petrelfs/jiangshuyang/checkpoints/ /mnt/petrelfs/jiangshuyang/checkpoints/BLEU/ /mnt/petrelfs/jiangshuyang/data-bin/wmt14_ende_distill_jointdict/
+python InferenceWMT_valid.py WMTende_distill_CMLMC_L5D3_300k_amlpseq_ema99_scale_c5 132 151 /mnt/petrelfs/jiangshuyang/checkpoints/ /mnt/petrelfs/jiangshuyang/checkpoints/BLEU/ /mnt/petrelfs/jiangshuyang/data-bin/wmt14_ende_distill_jointdict/
+
+python generate.py /mnt/petrelfs/jiangshuyang/data-bin/wmt14_deen_distill_jointdict --gen-subset test --task translation_lev --path $CKPT_DIR/checkpoint_best.pt --batch-size 128 --iter-decode-max-iter 10 --iter-decode-eos-penalty 0 --iter-decode-force-max-iter --iter-decode-with-beam 3 --remove-bpe --quiet

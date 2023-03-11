@@ -315,7 +315,8 @@ class TransformerDecoderLayer(nn.Module):
                 add_bias_kv=add_bias_kv,
                 add_zero_attn=add_zero_attn,
                 num_landmarks=args.landmarks,
-                causal=False
+                causal=False,
+                add_ema=args.add_ema
             )
         elif attn_type == 'covamlp':
             return CovAMLP(
@@ -352,7 +353,10 @@ class TransformerDecoderLayer(nn.Module):
                 add_zero_attn=add_zero_attn,
                 ffn_dimension=args.landmarks,
                 activation_fn=args.amlp_activation,
-                add_norm=True
+                add_norm=True,
+                add_ema=0.99,
+                scale=True,
+                conv_kernel_size=5
             )
         return MultiheadAttention(
             embed_dim,
@@ -376,7 +380,8 @@ class TransformerDecoderLayer(nn.Module):
                 num_heads=args.decoder_attention_heads,
                 dropout=args.attention_dropout,
                 num_landmarks=args.landmarks,
-                causal=False
+                causal=False,
+                add_ema=args.add_ema
             )
         elif attn_type == 'covamlp':
             return CovAMLP(
@@ -420,7 +425,10 @@ class TransformerDecoderLayer(nn.Module):
                 dropout=args.attention_dropout,
                 ffn_dimension=args.landmarks,
                 activation_fn=args.amlp_activation,
-                add_norm=True
+                add_norm=True,
+                conv_kernel_size=5,
+                add_ema=0.99,
+                scale=True,
             )
         return MultiheadAttention(
             embed_dim,
